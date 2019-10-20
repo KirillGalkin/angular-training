@@ -1,0 +1,8 @@
+<div class="cart-container">
+    <ng-container *ngIf="cartContent.length; else elseTemplate">
+        <img src="../../../assets/img/goods.svg" alt="cart" height="90" width="90">
+    </ng-container>
+    <ng-template #elseTemplate>
+        cart is empty
+    </ng-template>
+</div>
