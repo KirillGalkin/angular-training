@@ -11,9 +11,12 @@ import { Product } from '../../interfaces/product';
 export class ProductComponent {
   @Input() product: Product;
 
-  constructor(private cartService: CartService) { }
+  // Нежелательно в презентационный компонент внедрять зависимости.
+  constructor(private cartService: CartService) {}
 
   onBuy() {
+    // Лучше сгенерить аутпут для родителя,
+    // и там внедрить сервис и выполнить эту операцию
     this.cartService.buyProduct(this.product);
     console.log('Purchase done', this.cartService.getCartContent());
   }
